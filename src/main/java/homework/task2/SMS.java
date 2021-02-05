@@ -16,7 +16,9 @@ public class SMS extends Message{
 
     @Override
     public String send() {
-        return null;
+        if (phoneNumber.length() == 9) return "SMS o treści " +  getContent() + " został wysłany na numer " + phoneNumber;
+        else
+        return "SMS nie może zostać wysłany.";
     }
 
 }

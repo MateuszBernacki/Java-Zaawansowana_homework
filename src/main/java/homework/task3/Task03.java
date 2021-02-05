@@ -13,13 +13,14 @@ public class Task03 {
         /**
          * Po wykonaniu zadania zmień typ referencji na zdefiniowaną klasę abstrakcyjną w poniższych trzeh wierszach
          */
-        CellPhone superZi = new CellPhone(4000, "Szamsuk", "1678876", 12_000_000);
-        Laptop iDaisy = new Laptop(8000, "XYZ-100 RW", 120, "Daisy Co");
-        SmartWatch handyWatch = new SmartWatch("Quququ", 1000, "black");
+        Electronic superZi = new CellPhone(4000, "Szamsuk", "1678876", 12_000_000);
+        Electronic iDaisy = new Laptop(8000, "XYZ-100 RW", 120, "Daisy Co");
+        Electronic handyWatch = new SmartWatch("Quququ", 1000, "black");
         /**
          * Jeśli po zmianie program wyświetli dokładnie takie same komunikaty, to znaczy, że zadanie zostało wykonane poprawnie
          */
         System.out.println(superZi.getProducer());
+        System.out.println(superZi.getBatteryCapacity());
         System.out.println(iDaisy.getProducer());
         System.out.println(handyWatch.getProducer());
         System.out.println(superZi.sendSMS("Hello"));
@@ -29,6 +30,7 @@ public class Task03 {
         System.out.println(handyWatch.sendSMS("Hello"));
         superZi.setWiFi(true);
         superZi = new CellPhone(3000, "Czułałej", null, 16_000_000);
+        System.out.println(superZi);
         System.out.println(superZi.sendSMS("Hello again"));
     }
 }

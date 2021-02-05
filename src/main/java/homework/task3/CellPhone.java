@@ -1,19 +1,19 @@
 package homework.task3;
 
-public class CellPhone {
-    final int batteryCapacity;
-    final String producer;
+public class CellPhone extends Electronic{
+
     final String simCard;
     final int cameraSize;
     boolean isWiFi;
 
     public CellPhone(int batteryCapacity, String producer, String simCard, int cameraSize) {
-        this.batteryCapacity = batteryCapacity;
-        this.producer = producer;
+        super(producer, batteryCapacity);
         this.simCard = simCard;
         this.cameraSize = cameraSize;
+        this.producer = producer;
+        this.batteryCapacity = batteryCapacity;
     }
-
+    @Override
     public int maxWorkTime(int consumptionPerHour) {
         return batteryCapacity / consumptionPerHour;
     }
@@ -33,7 +33,7 @@ public class CellPhone {
     public int getCameraSize() {
         return cameraSize;
     }
-
+    @Override
     public String sendSMS(String sms) {
         if (simCard != null) {
             return "Your cellphone is sending " + sms;
@@ -46,7 +46,19 @@ public class CellPhone {
         return isWiFi;
     }
 
+    @Override
     public void setWiFi(boolean wiFi) {
         isWiFi = wiFi;
+    }
+
+    @Override
+    public String toString() {
+        return "CellPhone{" +
+                "simCard='" + simCard + '\'' +
+                ", cameraSize=" + cameraSize +
+                ", isWiFi=" + isWiFi +
+                ", batteryCapacity=" + batteryCapacity +
+                ", producer='" + producer + '\'' +
+                '}';
     }
 }
