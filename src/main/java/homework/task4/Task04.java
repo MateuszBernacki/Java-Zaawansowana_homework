@@ -10,14 +10,16 @@ package homework.task4;
  *    zwracanych pól powierzchni dla nowych klas
  */
 public class Task04 {
+    private static boolean isRectangle;
     public static void main(String[] args) {
-        Shape[] shapes = new Shape[5];
+        Shape[] shapes = new Shape[6];
         shapes[0] = new Rectangle(new Point(10,10),10,5);
         shapes[1] = new Square(new Point(5, 10), 5);
         shapes[2] = new Section(new Point(0,0), new Point(5,5));
         shapes[3] = new Triangle(new Point(0,0), new Point(0, 5), new Point( 5, 0));
         shapes[4] = new Circle(new Point(5,5), 5);
-        for (Shape s: shapes){
+
+        for (Shape s: shapes) {
             System.out.println(s);
             if (s != null) {
                 System.out.println("Pole powierzchni " + s.area());
@@ -25,13 +27,24 @@ public class Task04 {
                  4. Dopisz tutaj instrukcję, która rozpozna, który z obiektów jest prostokotąm
                  i wywoła metodę moveTo(new Point(0,0))
                  */
-            }
-        }
-        /**
-         * Oczekiwane wyniki
-         * - pole trójkąta = 12.50
-         * - pole koła     = 75.36
-         */
 
+                boolean isRectangle = s instanceof Rectangle;
+                if (isRectangle) {
+                    System.out.println("Potwierdzam prostokąt. Zmieniono Pkt początkowy. " + new Rectangle(moveTo(),10,5));
+                    System.out.println("Pole powierzchni " + s.area());
+                    System.out.println();
+                } else {
+                    System.out.println("To nie jest prostokąt.");
+                }
+            }
+            /**
+             * Oczekiwane wyniki
+             * - pole trójkąta = 12.50
+             * - pole koła     = 75.36
+             */
+        }
+    }
+    public static Point moveTo() {
+        return new Point(0,0);
     }
 }
