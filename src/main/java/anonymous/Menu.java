@@ -15,7 +15,7 @@ public class Menu {
         for (MenuItem item :
                 menuItems) {
             if (item.getNUMBER() == number){
-                System.out.println("Wybrano polecenie: "+ item.LABEL);
+                item.process();
             }
         }
     }
