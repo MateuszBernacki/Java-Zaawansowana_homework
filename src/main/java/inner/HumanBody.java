@@ -4,6 +4,7 @@ public class HumanBody {
     private Heart heart;
 
     public HumanBody() {
+        heart = new Heart(10);
     }
 
     public HumanBody(Heart heart) {
