@@ -15,8 +15,16 @@ package homework.task5;
  */
 public class GasCar {
     double fuelLevel;
-    double fuelCapacity;
+     final double fuelCapacity;
 
+    public GasCar(double fuelLevel, double fuelCapacity) {
+        this.fuelLevel = fuelLevel;
+        this.fuelCapacity = fuelCapacity;
+    }
+
+    public String fuelStatus () {
+        return "Fuel level: " + fuelLevel;
+    }
     /**
      * Metoda tankowania, powinna zmieniać poziom paliwa w fuelLevel
      * @param fuel objętość paliwa, które chce się dolać do baku
@@ -35,6 +43,22 @@ public class GasCar {
      * wywołano metodę refuel(5) i zwrócona wartość wynosi 5, gdyż cała porcja zmieściła się w abku
      */
     public double refuel(double fuel){
+        if (fuel < 0) {
+            System.out.print("Amount of fuel is incorrect. Amount of fuel is: ");
+            return fuelLevel;
+        }
+        if (fuelLevel + fuel < fuelCapacity) {
+            System.out.print("Refueled: ");
+            fuelLevel += fuel;
+            return fuel;
+        }
+        if (fuelLevel + fuel > fuelCapacity) {
+            double i = (fuel + fuelLevel) - fuelCapacity;
+            System.out.print("Wybrano za dużą ilość paliwa nie zmieściło się " + i + "L zmieściło sie : ");
+            fuelLevel = (fuelLevel + fuel) - i;
+            return fuel - i;
+        }
+        if (fuelLevel == fuelCapacity ) System.out.print("Fuel tank is full: ");
         return 0;
     }
 
@@ -54,6 +78,17 @@ public class GasCar {
      * wywołano metodę consume(2) i otrzymano wartość 2, gdyż w baku było 10, więc zużyto 2 i pozostało jeszcze 8
      */
     public double consume(double fuel){
-        return 0;
+        if (fuel < 0) {
+            System.out.print("Given amount of gas to consume is incorrect. Fuel level is: ");
+            return fuelLevel;
+        }
+        if (fuel > fuelLevel) {
+            double i = fuelLevel;
+            System.out.print("There is not enough fuel, used amount: " + i + " and there is still missing ");
+            fuelLevel-=fuelLevel;
+            return fuel - i;
+        }
+        if (fuel < fuelLevel) System.out.print("Gas amount consumed is " + fuel + " the amount left is: ");
+        return fuelLevel = fuelLevel - fuel;
     }
 }
