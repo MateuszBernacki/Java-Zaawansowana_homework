@@ -27,5 +27,35 @@ package homework.task6;
 public class Task06 {
     public static void main(String[] args) {
 
+        EmailAddress emailAddress = EmailAddress.of("mateusz@o2.pl");
+        HumanTemperature temperature = HumanTemperature.of(36.70);
+        Pesel pesel = Pesel.of("95122651248");
+
+        System.out.println(pesel);
+        if (pesel != null) {
+            System.out.println(pesel.get());
+            System.out.println(pesel.birthDate());
+            System.out.println(pesel.isMale());
+            System.out.println(pesel.isfemale());
+            }
+
+
+
+//        System.out.println(temperature);
+//        System.out.println(temperature.getTemperature());
+//        System.out.println(temperature.getKelvin());
+//        System.out.println(temperature.getFahrenheit());
+//        System.out.println(temperature.isNormal());
+//        System.out.println(temperature.format());
+
+//        System.out.println(emailAddress);
+//        System.out.println(emailAddress.get());
+//        System.out.println(emailAddress.username());
+//        System.out.println(emailAddress.host());
+//        System.out.println(emailAddress.topDomain());
+
+
     }
+
+    
 }
