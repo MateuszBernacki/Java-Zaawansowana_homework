@@ -44,13 +44,12 @@ public class GasCar {
      */
     public double refuel(double fuel){
         if (fuel < 0) {
-            System.out.print("Amount of fuel is incorrect. Amount of fuel is: ");
             return fuelLevel;
         }
         if (fuelLevel + fuel < fuelCapacity) {
             System.out.print("Refueled: ");
             fuelLevel += fuel;
-            return fuel;
+            return fuelLevel;
         }
         if (fuelLevel + fuel > fuelCapacity) {
             double i = (fuel + fuelLevel) - fuelCapacity;

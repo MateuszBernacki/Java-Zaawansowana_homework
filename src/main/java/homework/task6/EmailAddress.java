@@ -37,7 +37,7 @@ final public String emailAdres;
 
     public String host() {
         int n = emailAdres.lastIndexOf("@");
-        return (String) emailAdres.substring(n + 1, emailAdres.lastIndexOf("."));
+        return (String) emailAdres.substring(n + 1);
     }
 
     public String topDomain() {

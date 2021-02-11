@@ -3,6 +3,7 @@ package homework.task5;
 public class CrashGasCar extends GasCar{
     public CrashGasCar(double fuelLevel, double fuelCapacity) {
         super(fuelLevel, fuelCapacity);
+
     }
 
     @Override

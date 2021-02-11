@@ -19,8 +19,9 @@ public class HumanTemperature {
     }
 
     public static HumanTemperature of(double temperature){
-        if (temperature < 20 || temperature > 43) System.out.print("Temperature is incorrect. Your result is: ");
-        return new HumanTemperature(temperature);
+        if (temperature < 20 || temperature > 43) {
+            return null;
+        } else return new HumanTemperature(temperature);
     }
 
     public double getTemperature() {

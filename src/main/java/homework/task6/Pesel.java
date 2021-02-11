@@ -36,9 +36,19 @@ public class Pesel {
         int year = Integer.parseInt(y);
         int month = Integer.parseInt(m);
         int day = Integer.parseInt(d);
-        year += 1900;
-        LocalDate date = LocalDate.of(year, month, day);
+        if (month >= 1 && month <= 12) {
+            year += 1900;
+        }
+        if (month >=21 && month <= 32){
+            year+=2000;
+            month+=20;
+        }
+        if (month >=41 && month <= 52){
+            year+=2100;
+            month+=40;
+        }
 
+        LocalDate date = LocalDate.of(year, month, day);
         return "Birth date: " + date;
     }
     public String get(){

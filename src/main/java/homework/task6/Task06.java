@@ -38,24 +38,23 @@ public class Task06 {
             System.out.println(pesel.isMale());
             System.out.println(pesel.isfemale());
             }
+        System.out.println();
+        System.out.println(temperature);
+        if (temperature != null) {
+            System.out.println(temperature.getTemperature());
+            System.out.println(temperature.getKelvin());
+            System.out.println(temperature.getFahrenheit());
+            System.out.println(temperature.isNormal());
+            System.out.println(temperature.format());
+        }
 
-
-
-//        System.out.println(temperature);
-//        System.out.println(temperature.getTemperature());
-//        System.out.println(temperature.getKelvin());
-//        System.out.println(temperature.getFahrenheit());
-//        System.out.println(temperature.isNormal());
-//        System.out.println(temperature.format());
-
-//        System.out.println(emailAddress);
-//        System.out.println(emailAddress.get());
-//        System.out.println(emailAddress.username());
-//        System.out.println(emailAddress.host());
-//        System.out.println(emailAddress.topDomain());
-
-
+        System.out.println();
+        System.out.println(emailAddress);
+        if (emailAddress != null) {
+            System.out.println(emailAddress.get());
+            System.out.println(emailAddress.username());
+            System.out.println(emailAddress.host());
+            System.out.println(emailAddress.topDomain());
+        }
     }
-
-    
 }
