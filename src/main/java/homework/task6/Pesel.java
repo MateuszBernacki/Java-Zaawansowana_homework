@@ -41,11 +41,11 @@ public class Pesel {
         }
         if (month >=21 && month <= 32){
             year+=2000;
-            month+=20;
+            month-=20;
         }
         if (month >=41 && month <= 52){
             year+=2100;
-            month+=40;
+            month-=40;
         }
 
         LocalDate date = LocalDate.of(year, month, day);

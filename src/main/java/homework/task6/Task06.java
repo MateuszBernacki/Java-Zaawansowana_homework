@@ -29,7 +29,7 @@ public class Task06 {
 
         EmailAddress emailAddress = EmailAddress.of("mateusz@o2.pl");
         HumanTemperature temperature = HumanTemperature.of(36.70);
-        Pesel pesel = Pesel.of("95122651248");
+        Pesel pesel = Pesel.of("04282651248");
 
         System.out.println(pesel);
         if (pesel != null) {

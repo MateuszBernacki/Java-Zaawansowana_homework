@@ -21,7 +21,15 @@ package homework.task7;
  */
 public class Task07 {
     public static void main(String[] args) {
+        Dish breakfast = new Dish();
+        Ingredient addsToSoup = new Dish(new Ingredient[]{new Egg("egg", 200), new Bread(150, "best breed")});
 
+        System.out.println(addsToSoup);
+
+        System.out.println(breakfast);
+        System.out.println(breakfast.weight());
+        System.out.println(breakfast.calories());
     }
 }
+
 

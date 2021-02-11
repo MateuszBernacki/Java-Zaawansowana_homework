@@ -44,18 +44,16 @@ public class GasCar {
      */
     public double refuel(double fuel){
         if (fuel < 0) {
-            return fuelLevel;
+            return 0;
         }
         if (fuelLevel + fuel < fuelCapacity) {
             System.out.print("Refueled: ");
-            fuelLevel += fuel;
-            return fuelLevel;
+            return fuelLevel += fuel;
         }
         if (fuelLevel + fuel > fuelCapacity) {
             double i = (fuel + fuelLevel) - fuelCapacity;
-            System.out.print("Wybrano za dużą ilość paliwa nie zmieściło się " + i + "L zmieściło sie : ");
             fuelLevel = (fuelLevel + fuel) - i;
-            return fuel - i;
+            return i;
         }
         if (fuelLevel == fuelCapacity ) System.out.print("Fuel tank is full: ");
         return 0;
@@ -83,11 +81,11 @@ public class GasCar {
         }
         if (fuel > fuelLevel) {
             double i = fuelLevel;
-            System.out.print("There is not enough fuel, used amount: " + i + " and there is still missing ");
             fuelLevel-=fuelLevel;
-            return fuel - i;
+            return i;
         }
-        if (fuel < fuelLevel) System.out.print("Gas amount consumed is " + fuel + " the amount left is: ");
-        return fuelLevel = fuelLevel - fuel;
+        if (fuel < fuelLevel) System.out.print("Fuel: ");
+        fuelLevel-= fuel;
+        return fuel;
     }
 }
