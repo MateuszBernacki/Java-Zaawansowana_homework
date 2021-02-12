@@ -1,12 +1,12 @@
 package homework.task7;
 
-public class Tomato implements Ingredient {
+public class Butter implements Ingredient{
 
-    private static final double CALORIES_PER_GRAM = 0.17;
+    private static final double CALORIES_PER_GRAM = 7.17;
     private final double weight;
     private final String name;
 
-    public Tomato(double weight, String name) {
+    public Butter(double weight, String name) {
         this.weight = weight;
         this.name = name;
     }
@@ -23,7 +23,7 @@ public class Tomato implements Ingredient {
 
     @Override
     public String toString() {
-        return "Tomato{" +
+        return "Botter{" +
                 "weight=" + weight +
                 ", name='" + name + '\'' +
                 '}';

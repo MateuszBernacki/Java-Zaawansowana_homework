@@ -4,12 +4,12 @@ import java.util.Arrays;
 
 public class Dish implements Ingredient{
 
-Ingredient[] breakfast = {
+Ingredient[] products = {
         new Egg("egg", 40.50), new Bread(100,"bred"), new Cheese(40.20,"ser"),
         new Tomato(52.50,"tomato"), new Salt(2, "salt"), new Cake(124.30,"very good cake")};
 
-    public Dish(Ingredient[] breakfast) {
-        this.breakfast = breakfast;
+    public Dish(Ingredient[] products) {
+        this.products = products;
     }
 
     public Dish() {
@@ -20,7 +20,7 @@ Ingredient[] breakfast = {
     public double weight() {
         double weight = 0;
         for (Ingredient w :
-                breakfast) {
+                products) {
             weight += w.weight();
         }
         return weight;
@@ -30,7 +30,7 @@ Ingredient[] breakfast = {
     public double calories() {
         double cal = 0;
         for (Ingredient w :
-                breakfast) {
+                products) {
             cal += w.calories();
         }
         return cal;
@@ -38,8 +38,7 @@ Ingredient[] breakfast = {
 
     @Override
     public String toString() {
-        return "Dish{" +
-                "breakfast=" + Arrays.toString(breakfast) +
+        return "{" + Arrays.toString(products) +
                 '}';
     }
 }
