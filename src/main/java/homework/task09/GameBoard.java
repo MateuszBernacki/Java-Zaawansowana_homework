@@ -1,6 +1,6 @@
 package homework.task09;
 
-import java.util.Arrays;
+import homework.task09.playerMark.PlayerMark;
 
 public class GameBoard {
     private PlayerMark[][] board;

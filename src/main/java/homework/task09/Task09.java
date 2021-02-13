@@ -1,5 +1,7 @@
 package homework.task09;
 
+import homework.task09.playerMark.PlayerMark;
+
 /**
  * Klasa GameBoard opisuje planszę do gry w kołko i krzyżyk.
  * W jej konstruktorze tworzone są dwa obiekty klasy PlayerMark,

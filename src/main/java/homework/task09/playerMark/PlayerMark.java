@@ -1,8 +1,8 @@
-package homework.task09;
+package homework.task09.playerMark;
 
 public class PlayerMark {
-    private final String name;
-    private final String symbol;
+    static String name;
+    static String symbol;
     public PlayerMark(String name, String symbol) {
         this.name = name;
         this.symbol = symbol;

@@ -27,6 +27,8 @@ public class Task07 {
                 , new Sugar(5, "sugar"), new Salt(5, "salt"), new Pepper(3,"pepper"),addsToSoup});
 
         System.out.println("Tomato cream" + tomatoCream);
+        System.out.println("Tomato cream weight: " + tomatoCream.weight());
+        System.out.println("Tomato cream cal: " + tomatoCream.calories());
 
 //        System.out.println("Adds to soup " + addsToSoup);
 //        System.out.println("Breakfast " + products);
