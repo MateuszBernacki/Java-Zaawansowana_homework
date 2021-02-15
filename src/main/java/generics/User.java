@@ -1,5 +1,7 @@
 package generics;
 
+import java.time.LocalDate;
+
 public class User extends Person{
     final String email;
 

@@ -1,12 +1,18 @@
 package homework.task09.playerMark;
 
 public class PlayerMark {
-    private final String name;
-    private final String symbol;
-    public PlayerMark(String name, String symbol) {
+     final public String name;
+     final public String symbol;
+
+        private PlayerMark(String name, String symbol) {
         this.name = name;
         this.symbol = symbol;
+}
+
+    public static PlayerMark of(String name, String symbol){
+    return new PlayerMark(name,symbol);
     }
+
     public String getName() {
         return name;
     }

@@ -9,8 +9,8 @@ public class GameBoard {
 
     public GameBoard(String playerOneName, String playerTwoName) {
         this.board = new PlayerMark[3][3];
-        this.markOne = new PlayerMark(playerOneName,"X");
-        this.markTwo = new PlayerMark(playerTwoName, "O");
+        this.markOne = PlayerMark.of(playerOneName,"X");
+        this.markTwo = PlayerMark.of(playerTwoName, "O");
     }
 
 
