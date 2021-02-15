@@ -4,7 +4,7 @@ public class User extends Person{
     final String email;
 
     public User(String name, double height, String email) {
-        super(name, height);
+        super(name, LocalDate.of(2000, 10, 10), height);
         this.email = email;
     }
 
