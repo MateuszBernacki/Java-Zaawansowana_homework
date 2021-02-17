@@ -1,9 +1,6 @@
 package homework.task10;
 
-import java.util.IllegalFormatException;
 import java.util.Objects;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class EmailAddress {
     final String address;
@@ -18,8 +15,12 @@ public class EmailAddress {
      */
 
     public static EmailAddress of(String address) throws IllegalArgumentException{
-     return null;
+        if (!isValidAddress(address)) {
+            throw new IllegalArgumentException(address + "is not valid email address!");
+        }
+        return EmailAddress.of(address);
     }
+
 
     /**
      * Zaimplementuj metodę, która tworzy obiekt EmailAddress na podstawie username i hosta
@@ -33,7 +34,14 @@ public class EmailAddress {
 
 
     public static EmailAddress of(String username, String host) throws IllegalUsernameException, IllegalHostException, IllegalArgumentException {
-        return null;
+        if (!isValidUsername(username)&&!isValidHost(host)) {
+            throw new IllegalArgumentException(username + " & " + host + " is not valid usern anme and host address!");
+        }
+        if (!isValidUsername(username)) {
+            throw new IllegalUsernameException("Incorecct username");
+        }
+        if (!isValidHost(host)) throw new IllegalHostException("Incorrect host");
+        return EmailAddress.of(username,host);
     }
 
     public String get(){
