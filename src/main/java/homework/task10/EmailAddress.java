@@ -13,11 +13,8 @@ public class EmailAddress {
      * Zaimplementuj metodę, która zwróci obiekt EmailAddress, tylko gdy parametr address jest poprawny
      * jeśli nie to zgłosi wyjątek IllegalArgumentException z komunikatem: address + "is not valid email address!"
      */
-
     public static EmailAddress of(String address) throws IllegalArgumentException{
-        if (!isValidAddress(address)) {
-            throw new IllegalArgumentException(address + "is not valid email address!");
-        }
+        if (!isValidAddress(address)) throw new IllegalArgumentException(address + "is not valid email address!");
         return new EmailAddress(address);
     }
 
@@ -32,14 +29,17 @@ public class EmailAddress {
      * Obie klasy wyjątków należy samodzielnie zdefiniować
      */
 
-
     public static EmailAddress of(String username, String host) throws IllegalUsernameException, IllegalHostException, IllegalArgumentException {
-        if (isValidUsername(username)) return new EmailAddress(username);
-        else if (!isValidUsername(username)) throw new IllegalUsernameException(" Incorrect username");
-        if (isValidHost(host))return new EmailAddress(host);
-        else if (!isValidHost(host)) throw new IllegalHostException(" Incorrect host");
-        if (isValidUsername(username) && isValidHost(host)) return new EmailAddress(username+"@"+host) ;
-        else throw new IllegalArgumentException(username + " & " + host + "are inncorect.");
+        if (!isValidUsername(username)){
+            throw new IllegalUsernameException(" Inncorect usrename");
+        }
+        if (!isValidHost(host)){
+            throw new IllegalHostException(" Incorrect host");
+        }
+        if (!isValidUsername(username)&& !isValidHost(host)){
+            throw new IllegalArgumentException(username + " & " + host + " inncorect");
+        }
+        return new EmailAddress(username+'@'+host);
     }
 
     public String get(){
