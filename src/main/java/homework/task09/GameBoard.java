@@ -1,6 +1,5 @@
 package homework.task09;
 
-import homework.task09.playerMark.PlayerMark;
 
 public class GameBoard {
     private PlayerMark[][] board;
@@ -9,8 +8,8 @@ public class GameBoard {
 
     public GameBoard(String playerOneName, String playerTwoName) {
         this.board = new PlayerMark[3][3];
-        this.markOne = PlayerMark.of(playerOneName,"X");
-        this.markTwo = PlayerMark.of(playerTwoName, "O");
+        this.markOne = new PlayerMark(playerOneName,"X");
+        this.markTwo = new PlayerMark(playerTwoName, "O");
     }
 
 
@@ -45,5 +44,22 @@ public class GameBoard {
             sb.append("\n");
         }
         return sb.toString();
+    }
+}
+
+     class PlayerMark {
+    private final String name;
+    private final String symbol;
+    public PlayerMark(String name, String symbol) {
+        this.name = name;
+        this.symbol = symbol;
+    }
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
+        return symbol;
     }
 }
