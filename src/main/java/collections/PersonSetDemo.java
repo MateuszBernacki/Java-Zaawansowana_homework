@@ -80,6 +80,7 @@ class Email {
         return Objects.equals(username, email.username);
     }
 
+
     @Override
     public int hashCode() {
         return Objects.hash(username, host);

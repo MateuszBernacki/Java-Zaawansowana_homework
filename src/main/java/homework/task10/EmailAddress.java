@@ -18,15 +18,7 @@ public class EmailAddress {
      */
 
     public static EmailAddress of(String address) throws IllegalArgumentException{
-        Pattern addresPattern = Pattern.compile("[a-z]{1,12}+@+[a-z]{1,12}\\.[a-z]{1,12}");
-        Matcher givenAddres = addresPattern.matcher(address);
-        boolean aprovalOfAddres = givenAddres.matches();
-        try{
-            System.out.println(aprovalOfAddres);
-        } catch (IllegalArgumentException e){
-            System.out.println(address + "is not valid email address!");
-        }
-        return EmailAddress.of(address);
+     return null;
     }
 
     /**
@@ -41,23 +33,7 @@ public class EmailAddress {
 
 
     public static EmailAddress of(String username, String host) throws IllegalUsernameException, IllegalHostException, IllegalArgumentException {
-        Pattern name = Pattern.compile("[a-z]{1,12}");
-        Matcher givenUsername = name.matcher(username);
-        Pattern correctHost = Pattern.compile("[a-z]{1,12}+\\.[a-z]{1,12}");
-        Matcher givens = correctHost.matcher(host);
-        boolean isUsername = givenUsername.matches();
-        boolean isHost = givens.matches();
-        try{
-            System.out.println(!isUsername);
-        } catch (Exception e) {
-            throw new IllegalUsernameException(username, "incorrect ustername");
-        }
-        try{
-            System.out.println(!isHost);
-        } catch (Exception e){
-            throw new IllegalHostException(host, " incorrect host");
-        }
-        return EmailAddress.of(username, host);
+        return null;
     }
 
     public String get(){
