@@ -18,7 +18,7 @@ public class EmailAddress {
         if (!isValidAddress(address)) {
             throw new IllegalArgumentException(address + "is not valid email address!");
         }
-        return EmailAddress.of(address);
+        return new EmailAddress(address);
     }
 
 
@@ -34,14 +34,12 @@ public class EmailAddress {
 
 
     public static EmailAddress of(String username, String host) throws IllegalUsernameException, IllegalHostException, IllegalArgumentException {
-        if (!isValidUsername(username)&&!isValidHost(host)) {
-            throw new IllegalArgumentException(username + " & " + host + " is not valid usern anme and host address!");
-        }
-        if (!isValidUsername(username)) {
-            throw new IllegalUsernameException("Incorecct username");
-        }
-        if (!isValidHost(host)) throw new IllegalHostException("Incorrect host");
-        return EmailAddress.of(username,host);
+        if (isValidUsername(username)) return new EmailAddress(username);
+        else if (!isValidUsername(username)) throw new IllegalUsernameException(" Incorrect username");
+        if (isValidHost(host))return new EmailAddress(host);
+        else if (!isValidHost(host)) throw new IllegalHostException(" Incorrect host");
+        if (isValidUsername(username) && isValidHost(host)) return new EmailAddress(username+"@"+host) ;
+        else throw new IllegalArgumentException(username + " & " + host + "are inncorect.");
     }
 
     public String get(){
