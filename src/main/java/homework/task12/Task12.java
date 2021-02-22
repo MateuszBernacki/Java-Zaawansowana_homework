@@ -1,5 +1,10 @@
 package homework.task12;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 /**
  * Część 1
  * Rozbuduj klasę Dish o metody:
@@ -28,6 +33,10 @@ package homework.task12;
  */
 public class Task12 {
     public static void main(String[] args) {
-
+        Dish ingr = new Dish("Pizza", 1300,0.7);
+        ingr.addingredient(new Cake("ciasto", 1000));
+        ingr.addingredient(new Cheese("ser",140,0.2));
+        ingr.addingredient(new Tomato("pomidor",250,0.04));
+        ingr.ingredients();
     }
 }

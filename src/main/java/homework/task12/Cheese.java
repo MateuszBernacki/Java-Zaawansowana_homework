@@ -2,17 +2,18 @@ package homework.task12;
 
 import java.util.Objects;
 
-public class Tomato implements Ingredient{
-    private static final double CALORIES_PER_GRAM = 0.5;
+public class Cheese implements Ingredient{
+
     final String name;
     final double weight;
     final double calories;
 
-    public Tomato(String name, double weight, double calories) {
+    public Cheese(String name, double weight, double calories) {
         this.name = name;
         this.weight = weight;
         this.calories = calories;
     }
+
 
     @Override
     public String name() {
@@ -26,15 +27,15 @@ public class Tomato implements Ingredient{
 
     @Override
     public double calories() {
-        return weight * CALORIES_PER_GRAM;
+        return weight * calories;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Tomato tomato = (Tomato) o;
-        return Double.compare(tomato.weight, weight) == 0 && Double.compare(tomato.calories, calories) == 0 && Objects.equals(name, tomato.name);
+        Cheese cheese = (Cheese) o;
+        return Double.compare(cheese.weight, weight) == 0 && Double.compare(cheese.calories, calories) == 0 && Objects.equals(name, cheese.name);
     }
 
     @Override
@@ -44,7 +45,7 @@ public class Tomato implements Ingredient{
 
     @Override
     public String toString() {
-        return "Tomato{" +
+        return "Cheese{" +
                 "name='" + name + '\'' +
                 ", weight=" + weight +
                 ", calories=" + calories +

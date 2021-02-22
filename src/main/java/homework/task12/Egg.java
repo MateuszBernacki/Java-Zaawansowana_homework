@@ -1,5 +1,7 @@
 package homework.task12;
 
+import java.util.Objects;
+
 public class Egg implements Ingredient {
     private static final double CALORIES_PER_GRAM = 1.5;
     private final double weight;
@@ -23,6 +25,19 @@ public class Egg implements Ingredient {
     @Override
     public double calories() {
         return weight * CALORIES_PER_GRAM;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Egg egg = (Egg) o;
+        return Double.compare(egg.weight, weight) == 0 && Objects.equals(name, egg.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(weight, name);
     }
 
     @Override
