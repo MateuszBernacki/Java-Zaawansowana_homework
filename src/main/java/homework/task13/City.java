@@ -1,6 +1,9 @@
 package homework.task13;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class City implements Serializable {
 
@@ -45,6 +48,18 @@ public class City implements Serializable {
     public int getPopulation() {
         return population;
     }
+
+    List<String> countyCodesWhereYouFindCity = new ArrayList<>();
+    List<String> countyCodesWhereYouFindCity (Collection< City > cities) {
+        for (City c : cities) {
+            if (c.getCountryCode().contains(c.getCountryCode())) {
+                countyCodesWhereYouFindCity.add(c.getCountryCode());
+            }
+            if (cities.size() == 100) break;
+        }
+        return countyCodesWhereYouFindCity;
+    }
+
 
     @Override
     public String toString() {

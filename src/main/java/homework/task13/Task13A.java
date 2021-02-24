@@ -1,6 +1,7 @@
 package homework.task13;
 
-import java.util.Collection;
+import java.util.*;
+
 /**
  * CZESC 1
  * Na podstawie otrzymanej kolekcji miast (obiekty klasy City) stwórz kolejne kolekcje (elementy z kolekcji kopiujemy do nowej):
@@ -28,10 +29,68 @@ import java.util.Collection;
 public class Task13A {
     public static void main(String[] args) {
         Collection<City> cities = Cities.loadCities(Task13A.class.getResourceAsStream("../../cities500.txt"));
-        for(City c: cities){
+        for (City c : cities) {
             if (c.getCountryCode().equals("PL") && c.getName().equals("Stara Sól")) {
                 System.out.println(c);
             }
         }
+
+        List<String> citiesInPoland = new ArrayList<>();
+        List<String> citisWithPopulatiionOver1M = new ArrayList<>();
+        Map<String, City> mapCitis = new HashMap<>();
+
+        for (City c : cities) {
+
+            if (c.getCountryCode().equals("PL")) {
+                citiesInPoland.add(c.getName());
+            }
+            if (c.getPopulation() > 1_000_000) {
+                citisWithPopulatiionOver1M.add(c.getName());
+            }
+            mapCitis.put(c.getName(), c);
+
+        }
+
+        //iterator zamiany nazwy Nowa Sól na Sara Sól
+        Iterator<String> iterator = citiesInPoland.iterator();
+        while (iterator.hasNext()) {
+            String item = iterator.next();
+            if (item.contains("Nowa ")){
+     //           iterator.next().
+            }
+        }
+
+
+        //NIEMIECKIE MIASTO O POPULACJI POWYŻEJ MILIONA USUNIĘTE
+//        Iterator<City> cityListIterator = cities.iterator();
+//        while(cityListIterator.hasNext()){
+//            City item = cityListIterator.next();
+//            if (item.getPopulation() > 1_000_000 && item.getCountryCode().equals("DE")){
+//                System.out.println(item.getName() +" miato zostało usunięte");
+//                cityListIterator.remove();
+//            }
+//        }
+
+        //USUWANIE MIASTA O POPULACJI WIEKSZEJ OD 10_000
+//        Iterator<City> cityListIterator = cities.iterator();
+//        while(cityListIterator.hasNext()){
+//            City item = cityListIterator.next();
+//            if (item.getPopulation() < 10_000){
+//                System.out.println(item.getName() +" miato zostało usunięte");
+//                cityListIterator.remove();
+//            }
+//        }
+
+
+//        for (String n :
+//                citiesInPoland) {
+//            System.out.println(n);
+//        //
+//        for (String n :
+//                citisWithPopulatiionOver1M) {
+//            System.out.println(n);
+//        }
+
     }
 }
+

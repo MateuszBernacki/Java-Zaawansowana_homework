@@ -1,9 +1,10 @@
 package homework.task12;
+
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Dish implements Ingredient{
+public class Dish implements Ingredient {
     Set<Ingredient> ingredients = new LinkedHashSet<>();
     final String name;
     final double weight;
@@ -23,11 +24,11 @@ public class Dish implements Ingredient{
         this.calories = calories;
     }
 
-    public void addingredient(Ingredient ingredient){
-         ingredients.add(ingredient);
+    public void addingredient(Ingredient ingredient) {
+        ingredients.add(ingredient);
     }
 
-    public void ingredients(){
+    public void ingredients() {
         for (Ingredient ingredient : ingredients) {
             System.out.println(ingredient);
         }
@@ -49,6 +50,6 @@ public class Dish implements Ingredient{
 
     @Override
     public double calories() {
-        return weight*calories;
+        return weight * calories;
     }
 }
