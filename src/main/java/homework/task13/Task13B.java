@@ -1,6 +1,7 @@
 package homework.task13;
 
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * Napisz program konsolowy, który umożliwia przeglanie kolekcji cities. Kolekcja jest duża i zawiera prawie 200 tysięcy obiektów,
@@ -34,12 +35,44 @@ import java.util.List;
  * Zdefniuj klasę Paginator w postaci generycznej, aby działała dla dowolnej kolekcji obiektów
  */
 public class Task13B {
+    static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         List<City> cities = Cities.loadCities(Task13B.class.getResourceAsStream("../../cities500.txt"));
         for(City c: cities){
-            System.out.println(c);
+            //  System.out.println(c);
         }
+        MenuItem firstPage = new MenuItem("First page.", 1);
+        MenuItem nextPage = new MenuItem("Next page.", 2);
+        MenuItem previousPage = new MenuItem("Previous page.", 3);
+        MenuItem loadPage = new MenuItem("Load page number.", 4);
+        MenuItem endItem = new MenuItem("Koniec", 0);
 
+        Callback loadFirstPage = new Callback() {
+            @Override
+            public void action() {
+                CityPaginator cityPaginator = new CityPaginator();
+                System.out.println(cityPaginator.current(cities));
+                System.out.println();
+            }
+        };
+        firstPage.setCallback(loadFirstPage);
+
+        Callback loadnextPage = new Callback() {
+            @Override
+            public void action() {
+                CityPaginator cityPaginator = new CityPaginator();
+                System.out.println(cityPaginator.next(cities));
+            }
+        };
+        nextPage.setCallback(loadnextPage);
+
+
+        Menu menu = new Menu(List.of(firstPage,nextPage ,previousPage,loadPage,endItem));
+        while(true){
+            menu.print();
+            int itemNumber = scanner.nextInt();
+            menu.process(itemNumber);
+        }
     }
 }
