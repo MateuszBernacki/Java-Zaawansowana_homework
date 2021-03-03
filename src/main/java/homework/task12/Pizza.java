@@ -12,24 +12,23 @@ public class Pizza extends Dish implements Ingredient {
     }
 
     public boolean addCake(Cake cake) {
-        if(!ingredients.contains(cake)) {
-            addingredient(new Cake("ciasto", 1000));
-            return true;
+        for (Ingredient ingredient : ingredients) {
+            if (ingredient instanceof Cake) return false;
         }
-        else return false;
+        return addingredient(new Cake("ciasto", 200));
     }
     public boolean addChease(Cheese cheese){
-        if(!ingredients.contains(cheese)) {
-            addingredient(new Cheese("ser",140,0.2));
-            return true;
-        }else return false;
+        for (Ingredient ingredient : ingredients) {
+            if (ingredient instanceof Cheese) return false;
+        }
+        return addingredient(new Cheese("ser",140,0.2));
     }
 
     public boolean addTomato(Tomato tomato){
-        if (!ingredients.contains(tomato)) {
-            addingredient(new Tomato("pomidor",250,0.04));
-            return true;
-        }else return false;
+        for (Ingredient ingredient : ingredients) {
+            if (ingredient instanceof Tomato) return false;
+        }
+         return addingredient(new Tomato("pomidor",250,0.04));
     }
 
     //dodaj metody dodające pozostałe składniki

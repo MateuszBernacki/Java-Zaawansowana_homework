@@ -1,7 +1,6 @@
 package homework.task12;
 
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 
 public class Dish implements Ingredient {
@@ -24,8 +23,9 @@ public class Dish implements Ingredient {
         this.calories = calories;
     }
 
-    public void addingredient(Ingredient ingredient) {
+    public boolean addingredient(Ingredient ingredient) {
         ingredients.add(ingredient);
+        return false;
     }
 
     public void ingredients() {
