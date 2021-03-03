@@ -39,7 +39,7 @@ public class Task13B {
 
     public static void main(String[] args) {
         List<City> cities = Cities.loadCities(Task13B.class.getResourceAsStream("../../cities500.txt"));
-        for(City c: cities){
+        for (City c : cities) {
             //  System.out.println(c);
         }
         MenuItem firstPage = new MenuItem("First page.", 1);
@@ -67,9 +67,15 @@ public class Task13B {
         };
         nextPage.setCallback(loadnextPage);
 
-
-        Menu menu = new Menu(List.of(firstPage,nextPage ,previousPage,loadPage,endItem));
-        while(true){
+        Callback loadEndItem = new Callback() {
+            @Override
+            public void action() {
+                System.exit(0);
+            }
+        };
+        endItem.setCallback(loadEndItem);
+        Menu menu = new Menu(List.of(firstPage, nextPage, previousPage, loadPage, endItem));
+        while (true) {
             menu.print();
             int itemNumber = scanner.nextInt();
             menu.process(itemNumber);
