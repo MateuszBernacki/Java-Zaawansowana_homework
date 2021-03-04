@@ -34,63 +34,9 @@ public class Task13A {
                 System.out.println(c);
             }
         }
-
-        List<String> citiesInPoland = new ArrayList<>();
-        List<String> citisWithPopulatiionOver1M = new ArrayList<>();
-        Map<String, City> mapCitis = new HashMap<>();
-
-        for (City c : cities) {
-
-            if (c.getCountryCode().equals("PL")) {
-                citiesInPoland.add(c.getName());
-            }
-            if (c.getPopulation() > 1_000_000) {
-                citisWithPopulatiionOver1M.add(c.getName());
-            }
-            mapCitis.put(c.getName(), c);
-
+        for (City city : cities) {
+            city.iteratorDelate(cities);
         }
-
-        //iterator zamiany nazwy Nowa Sól na Sara Sól
-        Iterator<String> iterator = citiesInPoland.iterator();
-        while (iterator.hasNext()) {
-            String item = iterator.next();
-            if (item.contains("Nowa ")){
-     //           iterator.next().
-            }
-        }
-
-
-        //NIEMIECKIE MIASTO O POPULACJI POWYŻEJ MILIONA USUNIĘTE
-//        Iterator<City> cityListIterator = cities.iterator();
-//        while(cityListIterator.hasNext()){
-//            City item = cityListIterator.next();
-//            if (item.getPopulation() > 1_000_000 && item.getCountryCode().equals("DE")){
-//                System.out.println(item.getName() +" miato zostało usunięte");
-//                cityListIterator.remove();
-//            }
-//        }
-
-        //USUWANIE MIASTA O POPULACJI WIEKSZEJ OD 10_000
-//        Iterator<City> cityListIterator = cities.iterator();
-//        while(cityListIterator.hasNext()){
-//            City item = cityListIterator.next();
-//            if (item.getPopulation() < 10_000){
-//                System.out.println(item.getName() +" miato zostało usunięte");
-//                cityListIterator.remove();
-//            }
-//        }
-
-
-//        for (String n :
-//                citiesInPoland) {
-//            System.out.println(n);
-//        //
-//        for (String n :
-//                citisWithPopulatiionOver1M) {
-//            System.out.println(n);
-//        }
-
     }
 }
 
