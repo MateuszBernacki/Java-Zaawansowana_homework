@@ -48,6 +48,7 @@ public class City implements Serializable {
         return population;
     }
 
+    //LISTA KODOW PANSTW Z MIASTAMI
     public static List<String> countyCodesWhereYouFindCity (Collection< City > cities) {
         List<String> countyCodesWhereYouFindCity1 = new ArrayList<>();
         for (City c : cities) {
@@ -59,7 +60,7 @@ public class City implements Serializable {
         }
         return countyCodesWhereYouFindCity1;
     }
-
+    //LISTA MIAST Z POLSKI
     public static List<City> polishCities(Collection<City> cities){
         List<City> result = new ArrayList<>();
         for (City c : cities) {
@@ -98,6 +99,19 @@ public class City implements Serializable {
         }
         return iterator;
     }
+    //MAPA GDZIE NAZWA MIASTA JEST KLUCZEM A WARTOŚCIĄ OBIEKT CITY
+    public static Map<String,City> mapWithCityNames (Collection<City> cities){
+        Map<String, City> map = new HashMap<>();
+        for (City city : cities) {
+            map.put(city.getName(),city);
+        }
+        for (Map.Entry<String,City> s : map.entrySet()) {
+            System.out.println("Klucz - " + s.getKey() + " = wartość - " + s.getValue());
+        }
+        return map;
+    }
+
+
 
     //DODANIE DODATKOWEGO MIASTA TYPU ZMIANA NAZWY Z "NOWA" NA "STARA"
     public static List<City> itereatorAddWithNewName(Collection<City> cities) throws  NoSuchFieldException, IllegalAccessException {
