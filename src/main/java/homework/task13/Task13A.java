@@ -34,9 +34,7 @@ public class Task13A {
                 System.out.println(c);
             }
         }
-        for (City city : cities) {
-            city.iteratorDelate(cities);
-        }
+
     }
 }
 

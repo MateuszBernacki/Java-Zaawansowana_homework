@@ -48,18 +48,19 @@ public class City implements Serializable {
         return population;
     }
 
-    List<String> countyCodesWhereYouFindCity (Collection< City > cities) {
-        List<String> countyCodesWhereYouFindCity = new ArrayList<>();
+    public static List<String> countyCodesWhereYouFindCity (Collection< City > cities) {
+        List<String> countyCodesWhereYouFindCity1 = new ArrayList<>();
         for (City c : cities) {
-            if (c.getCountryCode().contains(c.getCountryCode())) {
-                countyCodesWhereYouFindCity.add(c.getCountryCode());
+            if (c.getPopulation()>100_000) {
+                countyCodesWhereYouFindCity1.add(c.getCountryCode());
+                System.out.println(c.getCountryCode()+ " = " + c.getName());
             }
             if (cities.size() == 100) break;
         }
-        return countyCodesWhereYouFindCity;
+        return countyCodesWhereYouFindCity1;
     }
 
-    List<City> polishCities(Collection<City> cities){
+    public static List<City> polishCities(Collection<City> cities){
         List<City> result = new ArrayList<>();
         for (City c : cities) {
             if (c.getCountryCode().equals("PL")) {
@@ -71,7 +72,7 @@ public class City implements Serializable {
     }
 
     //NIEMIECKIE MIASTO O POPULACJI POWYŻEJ MILIONA USUNIĘT
-    List<City> iteratorDelateGerman(Collection<City> cities) {
+    public static List<City> iteratorDelateGerman(Collection<City> cities) {
         List<City> c = new ArrayList<>();
         Iterator<City> iterator = cities.iterator();
         while (iterator.hasNext()) {
@@ -86,7 +87,7 @@ public class City implements Serializable {
     }
 
     //USUWANIE MIASTA O POPULACJI WIEKSZEJ OD 10_000
-    Iterator<City> iteratorDelate(Collection<City> cities) {
+    public static Iterator<City> iteratorDelate(Collection<City> cities) {
         Iterator<City> iterator = cities.iterator();
         while (iterator.hasNext()) {
             City item = iterator.next();
@@ -99,7 +100,7 @@ public class City implements Serializable {
     }
 
     //DODANIE DODATKOWEGO MIASTA TYPU ZMIANA NAZWY Z "NOWA" NA "STARA"
-    List<City> itereatorAddWithNewName(Collection<City> cities) throws  NoSuchFieldException, IllegalAccessException {
+    public static List<City> itereatorAddWithNewName(Collection<City> cities) throws  NoSuchFieldException, IllegalAccessException {
         List<City> c = new ArrayList<>();
         for (City item : cities) {
             if (item.getCountryCode().equals("PL") && item.getName().equals("Nowa")){
