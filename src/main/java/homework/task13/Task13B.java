@@ -20,7 +20,7 @@ import java.util.Scanner;
  * Opcja 0 powoduje wyjście z programu
  * Po wybraniu opcji 1-3 powinno nastapić wyświetlenie danej strony lub komunikatu i ponowne wyświetlenie menu
  * Do stworzenia programu możesz wykorzystać zdefiniowane klasy w pakiecie anonymous: Menu i MenuItem
- *
+ * <p>
  * Wskazówki
  * stwórz klasę CityPaginator, z konstruktorem o argumentach: kolekcja miast i rozmiar strony, oraz metodami
  * - current(), która zwraca listę obiektów należących do bieżącej strony; nie powoduje przewijania
@@ -30,7 +30,7 @@ import java.util.Scanner;
  * - skip(int page) - przechodzi do podanej strony i zwraca listę obiektów tej strony
  * Samodzielnie określ co mogą zwracać metody w sytuacjach skrajnych, np. gdy bieżąca strona jest ostatnią co może zwracać
  * metoda next()
- *
+ * <p>
  * CZESC DLA CHETNYCH
  * Zdefniuj klasę Paginator w postaci generycznej, aby działała dla dowolnej kolekcji obiektów
  */

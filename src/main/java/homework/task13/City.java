@@ -1,6 +1,7 @@
 package homework.task13;
 
 import java.io.Serializable;
+import java.lang.reflect.Field;
 import java.util.*;
 
 public class City implements Serializable {
@@ -85,38 +86,31 @@ public class City implements Serializable {
     }
 
     //USUWANIE MIASTA O POPULACJI WIEKSZEJ OD 10_000
-    List<City> iteratorDelate(Collection<City> cities) {
-        List<City> c = new ArrayList<>();
+    Iterator<City> iteratorDelate(Collection<City> cities) {
         Iterator<City> iterator = cities.iterator();
         while (iterator.hasNext()) {
             City item = iterator.next();
-            if (item.getPopulation() < 10_000) {
-                c.add(item);
-            }
             if (item.getPopulation() < 10_000) {
                 System.out.println(item.getName() + " miato zostało usunięte");
                 iterator.remove();
             }
         }
-        return c;
+        return iterator;
     }
 
     //DODANIE DODATKOWEGO MIASTA TYPU ZMIANA NAZWY Z "NOWA" NA "STARA"
-    List<City> itereatorAddWithNewName(Collection<City> cities) throws CloneNotSupportedException {
+    List<City> itereatorAddWithNewName(Collection<City> cities) throws  NoSuchFieldException, IllegalAccessException {
         List<City> c = new ArrayList<>();
-        ListIterator<City> iterator = (ListIterator<City>) cities.iterator();
-        while(iterator.hasNext()){
-            City item = iterator.next();
+        for (City item : cities) {
             if (item.getCountryCode().equals("PL") && item.getName().equals("Nowa")){
-                c.add(item);
-                item.clone().toString().replace("Nowa","Stara");
+                Field i = item.getClass().getDeclaredField("Nowa ");
+                i.setAccessible(true);
+                i.set(item, "Stara ");
                 c.add(item);
             }
         }
         return c;
     }
-
-
 
     @Override
     public String toString() {
