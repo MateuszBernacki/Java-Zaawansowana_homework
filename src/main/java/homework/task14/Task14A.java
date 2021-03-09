@@ -2,6 +2,7 @@ package homework.task14;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -25,25 +26,17 @@ public class Task14A {
         //sekwencja ../ powoduje przejście o katalog wyżej
         //dwie sa konieczne ponieważ każdy pakiet to katalog, a mamy pakiet task14 w pakiecie homework
 
-        //TODO JAK DODAC DO METODY KOD ZLICZAJACY SŁIWA
-        //LICZY ILOŚĆ SŁÓW W PLIKU TASK14.TXT
-//            Scanner scanner = new Scanner(input);
-//            int countWords = 0;
-//            while (scanner.hasNext()) {
-//                scanner.next();
-//                countWords++;
-//            }
-//            System.out.println("Ilość słów to: " + countWords);
-//            scanner.close();
-//
 
-        //LICZY ILOŚĆ LINI W PLIKU TASK14.TXT
-        //TODO JAK PODAĆ ŚCIEŻKĘ DO PLIKU W IDE???
+        //DODANIE LINI ZA POMOCA BUFERA ORAZ SŁÓW ZA POMOCĄ BUFER SPLIT
         List<String> lines = new ArrayList<>();
+        List<String> numberOfWords = new ArrayList<>();
+        List<String> countWordsFourLeters =new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader("c:\\data\\task14.txt"))) {
             String line;
-            while ((line = reader.readLine()) != null){
+            while ((line = reader.readLine()) != null) {
                 lines.add(line);
+                String[] result = line.split(" ");
+                numberOfWords.addAll(Arrays.asList(result));
             }
         } catch (FileNotFoundException e) {
             System.out.println("Nie ma takiego pliku!");
@@ -51,8 +44,13 @@ public class Task14A {
         } catch (IOException e) {
             System.out.println("Bład odczytu, brak danych");
         }
-        System.out.println("Ilosć lini: " +lines.size());
-        System.out.println("\b\b");
-
+        for (String numberOfWordsFourLeters : numberOfWords) {
+            if (numberOfWordsFourLeters.length() == 4){
+                countWordsFourLeters.add(numberOfWordsFourLeters);
+            }
+        }
+        System.out.println("Ilosć lini: " + lines.size());
+        System.out.println("Ilość słów: " + numberOfWords.size());
+        System.out.println("Ilość słów po 4 znaki to: " + countWordsFourLeters.size());
     }
 }
