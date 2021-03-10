@@ -1,6 +1,9 @@
 package homework.task13;
 
 import java.util.*;
+import java.util.function.DoubleFunction;
+import java.util.function.DoublePredicate;
+import java.util.stream.Collectors;
 
 /**
  * CZESC 1
@@ -29,12 +32,31 @@ import java.util.*;
 public class Task13A {
     public static void main(String[] args) {
         Collection<City> cities = Cities.loadCities(Task13A.class.getResourceAsStream("../../cities500.txt"));
-        for (City c : cities) {
+        for(City c: cities){
             if (c.getCountryCode().equals("PL") && c.getName().equals("Stara Sól")) {
                 System.out.println(c);
             }
         }
+        List<City> polishCities = cities.stream()
+                .filter(city -> "PL".equals(city.getCountryCode()))
+                .collect(Collectors.toList());
 
+        long[] populationsOfLargeCities = cities.stream()
+                .filter(city -> city.getPopulation() > 5_000_000)
+                .mapToLong(City::getPopulation)
+                .toArray();
+        for(long c: populationsOfLargeCities){
+            System.out.println(c);
+        }
+        Optional<Map.Entry<String, Long>> countryWithMaxPopulation = cities.stream()
+                .collect(Collectors.groupingBy(City::getCountryCode, Collectors.summingLong(City::getPopulation)))
+                .entrySet()
+                .stream()
+                .max(Comparator.comparingLong(Map.Entry::getValue));
+        System.out.println(countryWithMaxPopulation);
+
+        DoublePredicate isGreater = x -> x > 10.0;
+        DoubleFunction<Double> fun = x -> x *10.0;
     }
 }
 
