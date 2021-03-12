@@ -36,4 +36,15 @@ public class AddressItem {
     public LocalDate getBirthDate() {
         return birthDate;
     }
+
+    @Override
+    public String toString() {
+        return "AddressItem{" +
+                "name='" + name + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", emailAddress='" + emailAddress + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", birthDate=" + birthDate +
+                '}';
+    }
 }
