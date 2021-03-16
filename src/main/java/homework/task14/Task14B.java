@@ -66,7 +66,7 @@ public class Task14B {
         Callback loadExit = new Callback() {
             @Override
             public void action() {
-
+                storage.save();
                 System.exit(0);
             }
         };
