@@ -10,7 +10,7 @@ public class AddressBook {
     static Scanner scanner = new Scanner(System.in);
     List<AddressItem> addressBook = new ArrayList<>();
 
-    public AddressBook() {
+    public AddressBook() throws IOException {
     }
 
     public List<AddressItem> getAddressBook() {
@@ -24,7 +24,7 @@ public class AddressBook {
     }
 
     public void addAddressToBook() {
-        //TODO przeskakuje mi przy 2 dodaniu adresu "nameGiven" jest z automatu piste
+
         System.out.println("Podaj dane adresowe: ");
         System.out.println("Podaj imie: ");
         String nameGiven = scanner.nextLine();
@@ -53,10 +53,8 @@ public class AddressBook {
     }
 
     public void removeAddress(String fullName) {
-        //TODO przy usuwaniu dodanego adresu powinno wyskoczyć poke o podanie imienia i nzwiska do
-        // usunięcia niestety automatycznie jest pominięte jak to naprawić??
-
         for (AddressItem item : addressBook) {
+            scanner.nextLine();
             if (item.getFullName().equals(fullName)) {
                 System.out.println("Czy chcesz usunąć adres: Y/N: ");
                 String odpowiedz = scanner.nextLine();
@@ -75,48 +73,11 @@ public class AddressBook {
         }
     }
 
-
-    public void load() throws IOException {
-        ObjectInputStream stream = null;
-        AddressItem z;
-        try {
-            stream = new ObjectInputStream(new FileInputStream("c:\\data\\adressbook.txt"));
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
-
-            while (stream != null) {
-                z = (AddressItem) stream.readObject();
-                addressBook.add(z);
+    public void serch(String name) {
+        for (AddressItem item : addressBook) {
+            if (item.getName().equals(name)) {
+                System.out.println("Odnaleziono; " + item);
             }
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        } finally {
-            if (stream != null)
-                stream.close();
-        }
-    }
-
-    public void save() {
-        ObjectOutput stream = null;
-        try {
-            stream = new ObjectOutputStream(new FileOutputStream("c:\\data\\adressbook.txt"));
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            assert stream != null;
-            stream.writeObject(addressBook);
-            stream.close();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }

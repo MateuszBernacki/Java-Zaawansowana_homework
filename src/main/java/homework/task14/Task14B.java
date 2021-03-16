@@ -1,4 +1,5 @@
 package homework.task14;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
@@ -18,7 +19,7 @@ public class Task14B {
 
     public static void main(String[] args) throws IOException {
         AddressBook addingAddressToBook = new AddressBook();
-
+        FileStorage storage = new FileStorage("c:\\data\\adressbook.ser");
 
         MenuItem addAddress = new MenuItem("Dodaj nowy adres", 1);
         MenuItem delateAddress = new MenuItem("Usuń adres", 2);
@@ -57,11 +58,7 @@ public class Task14B {
             public void action() {
                 System.out.println("Podaj imie osoby wyszukiwanej: ");
                 String name = scanner.nextLine();
-                for (AddressItem item : addingAddressToBook.addressBook) {
-                    if (item.getName().equals(name)) {
-                        System.out.println("Odnaleziono; " + item);
-                    }
-                }
+                addingAddressToBook.serch(name);
             }
         };
         serch.setCallback(loadSerch);
@@ -69,7 +66,7 @@ public class Task14B {
         Callback loadExit = new Callback() {
             @Override
             public void action() {
-                addingAddressToBook.save();
+
                 System.exit(0);
             }
         };
@@ -79,6 +76,8 @@ public class Task14B {
             menu.print();
             int itemNumber = scanner.nextInt();
             menu.process(itemNumber);
+
         }
     }
 }
+
