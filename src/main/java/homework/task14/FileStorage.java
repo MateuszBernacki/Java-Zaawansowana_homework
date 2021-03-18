@@ -11,7 +11,7 @@ public class FileStorage implements Storage {
     }
 
     @Override
-    public void save(List<AddressItem> addressBook) throws Exception {
+    public void save(List<AddressItem> addressBook) throws IOException {
         FileOutputStream out = new FileOutputStream(FILEPATH);
         ObjectOutputStream stream = new ObjectOutputStream(out);
         for (AddressItem addressItem : addressBook) {
@@ -26,7 +26,5 @@ public class FileStorage implements Storage {
         ObjectInputStream stream = new ObjectInputStream(inPut);
 
         return null;
-    }
-
-}
+    }}
 

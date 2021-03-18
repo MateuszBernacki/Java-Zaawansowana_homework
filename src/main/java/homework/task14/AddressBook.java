@@ -1,6 +1,6 @@
 package homework.task14;
 
-import java.io.*;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class AddressBook {
     static Scanner scanner = new Scanner(System.in);
-    List<AddressItem> addressBook = new ArrayList<>();
+    List<AddressItem> addressBook =new ArrayList<>();
 
     public AddressBook() throws IOException {
     }
@@ -41,6 +41,7 @@ public class AddressBook {
         int monthGiven = scanner.nextInt();
         System.out.println("Rok: ");
         int yearGiven = scanner.nextInt();
+        scanner.nextLine();
 
         AddressItem addressAdded = new AddressItem(nameGiven,
                 fullnameGiven,
@@ -54,8 +55,7 @@ public class AddressBook {
 
     public void removeAddress(String fullName) {
         for (AddressItem item : addressBook) {
-            scanner.nextLine();
-            if (item.getFullName().equals(fullName)) {
+            if (item.getFullName().contains(fullName)) {
                 System.out.println("Czy chcesz usunąć adres: Y/N: ");
                 String odpowiedz = scanner.nextLine();
                 if (odpowiedz.equals("Y")) {
@@ -77,6 +77,8 @@ public class AddressBook {
         for (AddressItem item : addressBook) {
             if (item.getName().equals(name)) {
                 System.out.println("Odnaleziono; " + item);
+            } else {
+                System.out.println("Taka osoba nie istnieje.");
             }
         }
     }

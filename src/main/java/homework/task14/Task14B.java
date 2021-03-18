@@ -1,6 +1,5 @@
 package homework.task14;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -17,7 +16,7 @@ import java.util.Scanner;
 public class Task14B {
     static Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         AddressBook addingAddressToBook = new AddressBook();
         FileStorage storage = new FileStorage("c:\\data\\adressbook.ser");
 
@@ -65,8 +64,8 @@ public class Task14B {
 
         Callback loadExit = new Callback() {
             @Override
-            public void action() {
-                storage.save();
+            public void action() throws Exception {
+                storage.save(addingAddressToBook.addressBook);
                 System.exit(0);
             }
         };
@@ -75,9 +74,9 @@ public class Task14B {
         while (true) {
             menu.print();
             int itemNumber = scanner.nextInt();
+            scanner.nextLine();
             menu.process(itemNumber);
 
         }
     }
 }
-
